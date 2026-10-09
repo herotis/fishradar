@@ -14,7 +14,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Install Flet
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.x'
+          channel: 'stable'
+      - name: Install Flet and Requests
         run: pip install flet requests
       - name: Build Android APK
         run: flet pack main.py --target android --name "FishRadarPro"
